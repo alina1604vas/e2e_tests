@@ -7,7 +7,6 @@ import io.testomat.e2e.tests.web.pages.ProjectsListPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.security.SecureRandom;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
