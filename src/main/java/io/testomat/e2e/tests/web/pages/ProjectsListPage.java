@@ -9,6 +9,7 @@ import java.util.List;
 import static com.codeborne.selenide.CollectionCondition.exactTexts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class ProjectsListPage {
 
@@ -39,8 +40,15 @@ public class ProjectsListPage {
         subscriptionPlanLabel.shouldBe(text(plan));
     }
 
-    public void search(String query) {
+    public ProjectsListPage search(String query) {
         searchField.setValue(query);
+        return this;
+    }
+
+    public void checkSearchedProject(String project) {
+        SelenideElement searchedElement = $x("//div[@class=\"tab-content\"]//h3[text()=\"" + project + "\"]");
+        searchedElement.shouldBe(Condition.visible);
+        searchedElement.click();
     }
 
 }
